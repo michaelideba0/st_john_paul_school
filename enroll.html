@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Enroll — St John Paul II</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="theme-lightblue">
+  <header class="site-header small">
+    <div class="container header-inner">
+      <div class="brand small">
+        <img src="assets/logo.png" alt="logo" class="logo">
+        <div><strong>St John Paul II</strong></div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a class="btn small" href="enroll.html">Enroll</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="form-card">
+      <h2>Student Enrollment & Appointment Booking</h2>
+      <form id="enrollForm">
+        <label>Student Full Name<input name="studentName" required></label>
+        <label>Age<input name="age" type="number" min="3" max="30" required></label>
+        <label>Class Applying For<input name="classApplying" required></label>
+        <label>Parent / Guardian Name<input name="parentName" required></label>
+        <label>Parent Contact Phone<input name="phone" required></label>
+        <label>Sex
+          <select name="sex" required>
+            <option value="">Select…</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </label>
+
+        <label>Upload Payment Receipt (image/pdf)<input id="payReceipt" name="payReceipt" type="file" accept="image/*,application/pdf" required></label>
+        <label>Upload Last School Report (image/pdf)<input id="lastReport" name="lastReport" type="file" accept="image/*,application/pdf" required></label>
+
+        <label>Preferred Appointment Date & Time<input name="appointment" type="datetime-local" required></label>
+
+        <label>Notes / Health Info<textarea name="notes"></textarea></label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn">Submit Enrollment</button>
+        </div>
+      </form>
+
+      <div id="msg" class="notice" style="display:none"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year2"></span> St John Paul II</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
