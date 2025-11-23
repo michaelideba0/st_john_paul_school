@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enrollment – St John Paul II Secondary School</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="enroll-body">  <header class="enroll-header">
+    <h1>Student Enrollment Form</h1>
+    <p>Fill out the form below to enroll your child at St John Paul II Secondary School.</p>
+  </header>  <section class="enroll-section">
+    <form id="enrollForm" onsubmit="submitEnrollment(event)"><h2>Student Information</h2>
+
+  <label>Full Name</label>
+  <input type="text" id="studentName" required />
+
+  <label>Age</label>
+  <input type="number" id="studentAge" required />
+
+  <label>Class</label>
+  <input type="text" id="studentClass" required />
+
+  <label>Sex</label>
+  <select id="studentSex" required>
+    <option value="">Select</option>
+    <option>Male</option>
+    <option>Female</option>
+  </select>
+
+  <h2>Parent / Guardian Information</h2>
+
+  <label>Parent Full Name</label>
+  <input type="text" id="parentName" required />
+
+  <label>Parent Phone Number</label>
+  <input type="text" id="parentPhone" required />
+
+  <label>Parent Email</label>
+  <input type="email" id="parentEmail" />
+
+  <h2>Document Uploads</h2>
+
+  <label>Upload Payment Receipt</label>
+  <input type="file" id="receiptUpload" accept="image/*, .pdf" required />
+
+  <label>Upload Last School Report</label>
+  <input type="file" id="reportUpload" accept="image/*, .pdf" required />
+
+  <h2>Book Appointment</h2>
+  <label>Select Preferred Date</label>
+  <input type="date" id="appointmentDate" required />
+
+  <label>Reason / Notes</label>
+  <textarea id="appointmentNotes" placeholder="Additional notes..."></textarea>
+
+  <button type="submit" class="btn">Submit Enrollment</button>
+</form>
+
+  </section>  <script src="script.js"></script></body>
+</html>

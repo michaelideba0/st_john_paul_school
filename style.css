@@ -1,0 +1,25 @@
+/* Base Styles */ body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f2f6fc; color: #333; }
+
+h1, h2, h3 { color: #1a3d6d; }
+
+.btn { background: #4a90e2; color: #fff; padding: 10px 20px; border: none; cursor: pointer; border-radius: 6px; margin-top: 10px; }
+
+.btn:hover { background: #3b7ac4; }
+
+/* Enrollment Page */ .enroll-header { background: #e5eefc; padding: 20px; text-align: center; }
+
+.enroll-section { width: 90%; max-width: 600px; margin: 20px auto; background: #fff; padding: 20px; border-radius: 8px; }
+
+.enroll-section input, .enroll-section select, .enroll-section textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; }
+
+/* Admin Page */ .admin-body { background: #eef3fa; }
+
+.admin-login, .admin-dashboard { width: 90%; max-width: 700px; margin: 30px auto; background: #fff; padding: 20px; border-radius: 8px; }
+
+.hidden { display: none; }
+
+.admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+
+.admin-section { background: #f9fbff; padding: 15px; border-left: 4px solid #4a90e2; margin-bottom: 20px; border-radius: 6px; }
+
+.error { color: red; margin-top: 10px; }
