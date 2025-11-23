@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+  <title>Admin Panel – St John Paul II Secondary School</title>  
+  <link rel="stylesheet" href="style.css" />  
+
+  <style>
+    .hidden { display: none; }
+    .error { color: red; margin-top: 10px; }
+    .admin-body {
+        background: #003366;
+        color: white;
+        font-family: Arial;
+        padding: 20px;
+    }
+    .admin-login {
+        max-width: 350px;
+        margin: 100px auto;
+        background: white;
+        color: black;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+    #adminPinInput {
+        width: 90%;
+        padding: 12px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        border: 1px solid gray;
+        font-size: 16px;
+    }
+    .btn {
+        background: orange;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .btn:hover { background: #ff9500; }
+    .logout {
+        background: red !important;
+    }
+  </style>
+</head>  
+
+<body class="admin-body">  
+
+  <!-- LOGIN SCREEN -->
+  <div class="admin-login" id="adminLogin">  
+    <h2>Admin Login</h2>  
+    <p>Enter the secure admin PIN to continue.</p>  
+    <input type="password" id="adminPinInput" placeholder="Enter PIN" />  
+    <button onclick="verifyPin()" class="btn">Login</button>  
+    <p id="pinError" class="error"></p>  
+  </div>  
+
+  <!-- DASHBOARD (HIDDEN UNTIL PIN IS CORRECT) -->
+  <div class="admin-dashboard hidden" id="adminDashboard">  
+
+    <header class="admin-header">  
+      <h1>School Management Dashboard</h1>  
+      <button onclick="logoutAdmin()" class="btn logout">Logout</button>  
+    </header>
+
+<section class="admin-section">  
+  <h2>Post News / Events</h2>  
+  <input type="text" id="newsTitle" placeholder="News Title" />  
+  <textarea id="newsContent" placeholder="Write News or Event Details..."></textarea>  
+  <button onclick="postNews()" class="btn">Publish</button>  
+</section>  
+  
+<section class="admin-section">  
+  <h2>Enrollment Applications</h2>  
+  <div id="enrollmentList"></div>  
+</section>  
+  
+<section class="admin-section">  
+  <h2>Update School Account Details</h2>  
+  <input type="text" id="accountName" placeholder="Account Name" />  
+  <input type="text" id="accountNumber" placeholder="Account Number" />  
+  <input type="text" id="bankName" placeholder="Bank Name" />  
+  <button onclick="updateAccountDetails()" class="btn">Save Account Details</button>  
+</section>  
+  
+<section class="admin-section">  
+  <h2>Edit Homepage Text & Images</h2>  
+  <label>School Motto</label>  
+  <input type="text" id="editMotto" placeholder="Enter Motto" />  
+  
+  <label>About School Description</label>  
+  <textarea id="editAbout" placeholder="Edit About Section..."></textarea>  
+  
+  <label>Call to Action Text</label>  
+  <input type="text" id="editCTA" placeholder="Edit CTA Text" />  
+  
+  <p>Replace homepage images inside the assets folder.</p>  
+  
+  <button onclick="saveHomepageEdits()" class="btn">Save Changes</button>  
+</section>  
+
+  </div>
+
+<script>
+  // ============================
+  // PIN SECURITY SYSTEM
+  // PIN = 2233
+  // ============================
+
+  const correctPIN = "2233";
+
+  function verifyPin() {
+    const userPIN = document.getElementById("adminPinInput").value;
+    const errorMsg = document.getElementById("pinError");
+
+    if (userPIN === correctPIN) {
+      // Success: unlock dashboard
+      document.getElementById("adminLogin").classList.add("hidden");
+      document.getElementById("adminDashboard").classList.remove("hidden");
+
+      // save login session
+      localStorage.setItem("adminLoggedIn", "true");
+    } else {
+      errorMsg.textContent = "Incorrect PIN. Try again.";
+    }
+  }
+
+  // Keep admin logged in (automatic session restore)
+  window.onload = () => {
+    if (localStorage.getItem("adminLoggedIn") === "true") {
+      document.getElementById("adminLogin").classList.add("hidden");
+      document.getElementById("adminDashboard").classList.remove("hidden");
+    }
+  };
+
+  // Logout function
+  function logoutAdmin() {
+    localStorage.removeItem("adminLoggedIn");
+    document.getElementById("adminDashboard").classList.add("hidden");
+    document.getElementById("adminLogin").classList.remove("hidden");
+  }
+</script>
+
+<script src="script.js"></script>
+
+</body>  
+</html>
